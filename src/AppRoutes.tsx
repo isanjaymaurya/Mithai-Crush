@@ -1,6 +1,5 @@
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 
-import Header from "./components/Header/Header";
 import HomePage from "./routes/HomePage/HomePage";
 import LevelPage from "./routes/LevelPage/LevelPage";
 

@@ -1,19 +1,24 @@
-import { Link, useParams } from "react-router-dom"
-import { useState } from "react";
+import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react";
 import {Helmet} from "react-helmet";
 
 import GameBoard from "../../components/GameBoard/GameBoard";
 import ScoreBoard from "../../components/ScoreBoard/ScoreBoard";
 import { APP_NAME } from "../../constants";
 
-interface LevelPageProps {
-    level: string | number
-}
+// interface LevelPageProps {
+//     level: string | number
+// }
 
 const LevelPage = () => {
     const { levelNo } = useParams();
     const [score, setScore] = useState(0);
     const [stars, setStars] = useState(0);
+
+    useEffect(() => {
+        setScore(0);
+        setStars(0);
+    }, [])
 
     return (
         <>
@@ -26,7 +31,7 @@ const LevelPage = () => {
                         <ScoreBoard score={score} stars={stars} />
                     </div>
                     <div className="max-w-sm mx-auto bg-red-300">
-                        <GameBoard levelNo={levelNo} />
+                        <GameBoard levelNo={levelNo} setScore={setScore} />
                     </div>
                 </div>
             </div>
