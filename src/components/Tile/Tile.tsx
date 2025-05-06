@@ -16,10 +16,10 @@ const Tile = ({
   onMove,
   color,
   isReverting,
-  isRemoving
+  // isRemoving
 }: TileProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [isFading, setIsFading] = useState(false);
+  const [isFading] = useState(false);
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'TILE',
