@@ -103,12 +103,16 @@ const GameBoard = ({
               emptySlots++;
             } else if (emptySlots > 0) {
               board[index + emptySlots * size] = board[index];
+              board[index + emptySlots * size].isRemoving = true; 
               board[index] = { color: '' };
             }
           }
           for (let row = 0; row < emptySlots; row++) {
             const index = row * size + col;
-            board[index] = { color: candyTypes[Math.floor(Math.random() * candyTypes.length)] };
+            board[index] = { 
+                color: candyTypes[Math.floor(Math.random() * candyTypes.length)],
+                isRemoving: true
+            };
           }
         }
         return [...board];

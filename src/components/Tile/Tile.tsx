@@ -16,7 +16,7 @@ const Tile = ({
   onMove,
   color,
   isReverting,
-  // isRemoving
+  isRemoving
 }: TileProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isFading] = useState(false);
@@ -41,7 +41,7 @@ const Tile = ({
   return (
     <div
       ref={ref}
-      className={`h-10 cursor-pointer ${color} ${isDragging ? 'opacity-50' : 'opacity-100'} ${isFading ? 'animate-fadeOut' : ''} ${isReverting ? 'animate-revert' : ''}`}
+      className={`h-10 cursor-pointer ${color} ${isDragging ? 'opacity-50' : 'opacity-100'} ${isFading ? 'animate-fadeOut' : ''} ${isReverting ? 'animate-revert' : ''} ${isRemoving ? 'drop': ''}`}
       data-type={type}
       style={{ border: '0.5px solid' }}
     >
